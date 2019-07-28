@@ -28,7 +28,6 @@ __global__ void GaussianKernel(T* img, const size_t rows, const size_t cols) {
     const size_t x = hipBlockDim_x * hipBlockIdx_x + hipThreadIdx_x;
     const size_t y = hipBlockDim_y * hipBlockIdx_y + hipThreadIdx_y;
     auto index = [cols] (size_t x, size_t y) { return y*cols + x; };
-    const size_t idx = (y*cols + x);  // each pixel is 3 bytes wide for its channels
 
     return;
 }
